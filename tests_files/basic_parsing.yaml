@@ -1,0 +1,10 @@
+name: Average Person
+age: 32
+weight: 62.0
+height: 1.68
+inventory:
+  - item: banana
+    quantity: 2
+  - item: glasses
+  - item: dagger
+    damage: 5
