@@ -1,7 +1,7 @@
 #pragma once
 
-#include "YamlDoc/Doc.hpp"
-#include "YamlDoc/exceptions/DocException.hpp"
+#include "yaml-doc/Doc.hpp"
+#include "yaml-doc/exceptions/DocException.hpp"
 
 #include <doctest/doctest.h>
 
@@ -25,8 +25,7 @@ TEST_SUITE("Testing YamlDoc")
   TEST_CASE("Parsing yaml file")
   {
     try {
-      YAML::Doc doc =
-        YAML::Doc::parseFromFile("tests_files/basic_parsing.yaml");
+      YAML::Doc doc = YAML::Doc::parseFile("tests_files/basic_parsing.yaml");
       YAML::Doc* nameDoc = doc.getNode("name");
       std::string name = nameDoc->getValue();
 
@@ -57,7 +56,7 @@ TEST_SUITE("Testing YamlDoc")
       doc.tryGetValue("non.existant.path", &notFoundValue);
       CHECK(notFoundValue == 12.5f);
 
-      doc.tryGetValue("non.existant.path", &notFoundValue, 51.3f);
+      doc.tryGetValue<float>("non.existant.path", &notFoundValue, 51.3f);
       CHECK(notFoundValue == 51.3f);
 
     } catch (const YAML::DocException e) {

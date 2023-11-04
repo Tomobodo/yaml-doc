@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.20)
 
 project(
   yaml-doc
@@ -8,6 +8,7 @@ project(
 
 add_subdirectory(src)
 add_subdirectory(tests)
+add_subdirectory(example)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   add_link_options(

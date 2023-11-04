@@ -10,7 +10,7 @@
 #include <yaml.h>
 
 namespace YAML {
-Doc Doc::parseFromFile(const std::string pPath)
+Doc Doc::parseFile(const std::string& pPath)
 {
   Doc doc;
   doc.name = "root";
@@ -40,7 +40,7 @@ Doc Doc::parseFromFile(const std::string pPath)
   return std::move(doc);
 }
 
-Doc Doc::parseFromString(const std::string pString)
+Doc Doc::parseString(const std::string& pString)
 {
   Doc doc;
   doc.name = "root";
@@ -228,7 +228,7 @@ std::string Doc::toString() const
   return toString(0);
 }
 
-Doc* Doc::getNode(std::string pPath)
+Doc* Doc::getNode(const std::string& pPath)
 {
   if (pPath.empty()) {
     return this;
@@ -257,7 +257,7 @@ Doc* Doc::getNode(std::string pPath)
   return currentDoc;
 }
 
-bool Doc::tryGetNode(const std::string pPath, Doc*& pOut)
+bool Doc::tryGetNode(const std::string& pPath, Doc*& pOut)
 {
   if (pPath.empty()) {
     pOut = this;
@@ -301,6 +301,21 @@ std::string Doc::getValue(std::string pPath, std::string pDefault)
     return node->getValue();
   }
   return pDefault;
+}
+
+bool Doc::tryGetValue(const std::string& pPath,
+                      std::string* pOut,
+                      const std::string& pDefaultValue)
+{
+  Doc* node;
+  if (tryGetNode(pPath, node)) {
+    *pOut = node->getValue();
+    return true;
+  }
+
+  *pOut = pDefaultValue;
+
+  return false;
 }
 
 template<>

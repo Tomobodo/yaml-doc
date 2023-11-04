@@ -20,8 +20,8 @@ public:
     SEQUENCE
   };
 
-  static Doc parseFromFile(const std::string pPath);
-  static Doc parseFromString(const std::string pString);
+  static Doc parseFile(const std::string& pPath);
+  static Doc parseString(const std::string& pString);
 
   Doc();
   Doc(Doc* pParent);
@@ -44,9 +44,9 @@ public:
 
   inline Doc* getParent() const { return parent; }
 
-  Doc* getNode(const std::string pPath);
+  Doc* getNode(const std::string& pPath);
 
-  bool tryGetNode(const std::string pPath, Doc*& pOut);
+  bool tryGetNode(const std::string& pPath, Doc*& pOut);
 
   inline std::string getValue() { return value; }
 
@@ -97,6 +97,10 @@ public:
   std::string getValue(std::string pPath);
 
   std::string getValue(std::string pPath, std::string pDefault);
+
+  bool tryGetValue(const std::string& pPath,
+                   std::string* pOut,
+                   const std::string& pDefaultValue);
 
   template<typename T>
   bool tryGetValue(std::string pPath, T* pOut)
