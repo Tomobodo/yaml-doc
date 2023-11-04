@@ -4,7 +4,7 @@
 
 #include "yaml-doc/Doc.hpp"
 
-std::string exampleDoc =
+const std::string exampleDoc =
   R"YAML(name: John Doe
 age: 42
 relationships:
