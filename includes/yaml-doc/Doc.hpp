@@ -78,14 +78,14 @@ public:
   }
 
   template<typename T>
-  T getValue(std::string pPath)
+  T getValue(const std::string& pPath)
   {
     Doc* node = getNode(pPath);
     return node->getValue<T>();
   }
 
   template<typename T>
-  T getValue(std::string pPath, T pDefault)
+  T getValue(const std::string& pPath, T pDefault)
   {
     Doc* node;
     if (tryGetNode(pPath, node)) {
@@ -94,16 +94,16 @@ public:
     return pDefault;
   }
 
-  std::string getValue(std::string pPath);
+  std::string getValue(const std::string& pPath);
 
-  std::string getValue(std::string pPath, std::string pDefault);
+  std::string getValue(const std::string& pPath, const std::string& pDefault);
 
   bool tryGetValue(const std::string& pPath,
                    std::string* pOut,
                    const std::string& pDefaultValue);
 
   template<typename T>
-  bool tryGetValue(std::string pPath, T* pOut)
+  bool tryGetValue(const std::string& pPath, T* pOut)
   {
     Doc* node;
     if (tryGetNode(pPath, node)) {
@@ -114,7 +114,7 @@ public:
   }
 
   template<typename T>
-  bool tryGetValue(std::string pPath, T* pOut, T pDefaultValue)
+  bool tryGetValue(const std::string& pPath, T* pOut, T pDefaultValue)
   {
     Doc* node;
     if (tryGetNode(pPath, node)) {

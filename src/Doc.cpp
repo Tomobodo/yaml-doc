@@ -288,13 +288,13 @@ bool Doc::tryGetNode(const std::string& pPath, Doc*& pOut)
   return true;
 }
 
-std::string Doc::getValue(std::string pPath)
+std::string Doc::getValue(const std::string& pPath)
 {
   Doc* node = getNode(pPath);
   return node->getValue();
 }
 
-std::string Doc::getValue(std::string pPath, std::string pDefault)
+std::string Doc::getValue(const std::string& pPath, const std::string& pDefault)
 {
   Doc* node;
   if (tryGetNode(pPath, node)) {
