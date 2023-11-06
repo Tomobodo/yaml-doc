@@ -1,3 +1,6 @@
 [submodule "libs/doctest"]
 	path = libs/doctest
 	url = git@github.com:doctest/doctest.git
+[submodule "libs/libyaml"]
+	path = libs/libyaml
+	url = git@github.com:yaml/libyaml.git
