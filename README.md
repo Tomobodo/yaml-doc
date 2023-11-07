@@ -10,31 +10,7 @@ you'll need [cmake](https://cmake.org/) and a c++ compiler (preferably gcc or cl
 
 yaml-doc also depends on [libyaml](https://github.com/yaml/libyaml)
 
-#### installing libyaml on linux (debian like)
-
-```shell
-sudo apt install libyaml-dev
-```
-
-#### installing libyaml on windows with [msys2](https://www.msys2.org/) for mingw64 target
-
-```shell
-pacman -S mingw-w64-x86_64-libyaml
-```
-
-(see https://packages.msys2.org/base/mingw-w64-libyaml for other available targets)
-
-#### installing libyaml on window with [vcpkg](https://vcpkg.io/)
-
-```shell
-vcpkg install libyaml
-```
-
-#### installing libyaml on macos with [homebrew](https://brew.sh/)
-
-```shell
-brew install libyaml
-```
+libyaml is added as a git submodule so clone the project using --recursive option and every dependencies should be pulled
 
 ### Cloning
 
