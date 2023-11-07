@@ -5,7 +5,6 @@
 #include "exceptions/DocParserException.hpp"
 
 #include <ostream>
-#include <sstream>
 #include <string>
 #include <yaml.h>
 

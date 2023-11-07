@@ -6,6 +6,8 @@ project(
   LANGUAGES CXX
 )
 
+add_subdirectory(libs/libyaml)
+
 add_subdirectory(src)
 add_subdirectory(tests)
 add_subdirectory(example)

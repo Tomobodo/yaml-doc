@@ -4,7 +4,9 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <yaml.h>
+
+typedef struct yaml_parser_s yaml_parser_t;
+typedef struct yaml_event_s yaml_event_t;
 
 namespace YAML {
 

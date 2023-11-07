@@ -11,7 +11,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/libs/doctest doctest)
 
 target_include_directories(
   ${PROJECT_NAME} PRIVATE
-  ${CMAKE_SOURCE_DIR}/includes
+  ${CMAKE_SOURCE_DIR}/include
 )
 
 target_link_libraries(
