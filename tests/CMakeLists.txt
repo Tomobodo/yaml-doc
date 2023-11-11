@@ -7,7 +7,9 @@ target_sources(
   main.cpp
 )
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/libs/doctest doctest)
+if (NOT TARGET doctest)
+  add_subdirectory(${CMAKE_SOURCE_DIR}/libs/doctest doctest)
+endif()
 
 target_include_directories(
   ${PROJECT_NAME} PRIVATE
