@@ -3,12 +3,16 @@
 #include "exceptions/DocConversionException.hpp"
 #include <sstream>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 typedef struct yaml_parser_s yaml_parser_t;
 typedef struct yaml_event_s yaml_event_t;
 
 namespace YAML {
+
+template<typename T>
+concept Numeric = std::is_arithmetic_v<T>;
 
 class Doc
 {
@@ -53,6 +57,9 @@ public:
   inline std::string getValue() { return value; }
 
   template<typename T>
+  T getValue();
+
+  template<Numeric T>
   T getValue()
   {
     T returnValue;
@@ -67,6 +74,9 @@ public:
   }
 
   template<typename T>
+  T getValueOr(T pDefault);
+
+  template<Numeric T>
   T getValueOr(T pDefault)
   {
     T returnValue;

@@ -6,6 +6,8 @@ project(
   LANGUAGES CXX
 )
 
+set(CMAKE_CXX_STANDARD 20)
+
 add_subdirectory(libs/libyaml)
 
 add_subdirectory(src)
