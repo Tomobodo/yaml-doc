@@ -9,8 +9,8 @@ target_sources(
 
 target_include_directories(
   ${PROJECT_NAME} PRIVATE
-  ${PROJECT_SOURCE_DIR}/include/yaml-doc
-  ${PROJECT_SOURCE_DIR}/libs/libyaml/include
+  ${YAML_DOC_DIR}/include/yaml-doc
+  ${YAML_DOC_DIR}/libs/libyaml/include
 )
 
 target_link_libraries(

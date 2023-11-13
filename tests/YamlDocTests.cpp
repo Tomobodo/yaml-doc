@@ -1,5 +1,3 @@
-#pragma once
-
 #include "yaml-doc/Doc.hpp"
 #include "yaml-doc/exceptions/DocException.hpp"
 

@@ -5,15 +5,16 @@ add_executable(${PROJECT_NAME})
 target_sources(
   ${PROJECT_NAME} PRIVATE
   main.cpp
+  YamlDocTests.cpp
 )
 
 if (NOT TARGET doctest)
-  add_subdirectory(${CMAKE_SOURCE_DIR}/libs/doctest doctest)
+  add_subdirectory(${YAML_DOC_DIR}/libs/doctest doctest)
 endif()
 
 target_include_directories(
   ${PROJECT_NAME} PRIVATE
-  ${CMAKE_SOURCE_DIR}/include
+  ${YAML_DOC_DIR}/include
 )
 
 target_link_libraries(
