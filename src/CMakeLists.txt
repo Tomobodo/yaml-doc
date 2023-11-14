@@ -1,5 +1,7 @@
 add_library(${PROJECT_NAME})
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/libs/libyaml libyaml)
+
 add_subdirectory(exceptions)
 
 target_sources(

@@ -7,17 +7,22 @@ project(
 )
 
 set(YAML_DOC_DIR ${PROJECT_SOURCE_DIR})
-
 set(CMAKE_CXX_STANDARD 20)
 
-add_subdirectory(libs/libyaml)
-
 add_subdirectory(src)
-add_subdirectory(tests)
-add_subdirectory(example)
+add_subdirectory(tests EXCLUDE_FROM_ALL)
+add_subdirectory(example EXCLUDE_FROM_ALL)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   add_link_options(
     -lstdc++
-  )
+)
 endif()
+
+set(YAML_DOC_TESTS ${PROJECT_NAME}-tests)
+enable_testing()
+add_test(
+  NAME ${YAML_DOC_TESTS}
+  COMMAND ${PROJECT_BINARY_DIR}/tests/${YAML_DOC_TESTS}
+  WORKING_DIRECTORY ${YAML_DOC_DIR}
+)

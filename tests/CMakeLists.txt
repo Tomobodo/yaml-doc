@@ -9,7 +9,7 @@ target_sources(
 )
 
 if (NOT TARGET doctest)
-  add_subdirectory(${YAML_DOC_DIR}/libs/doctest doctest)
+  add_subdirectory(${YAML_DOC_DIR}/libs/doctest doctest EXCLUDE_FROM_ALL)
 endif()
 
 target_include_directories(
@@ -22,3 +22,4 @@ target_link_libraries(
   yaml-doc
   doctest
 )
+

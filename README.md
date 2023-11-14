@@ -23,15 +23,22 @@ git clone git@github.com:tomobodo/yaml-doc.git --recursive
 ```shell
 cd yaml-doc
 cmake -B build -DCMAKE_BUILD_TYPE=Release -G Ninja # Ninja optional
-cmake --build build --target yaml-doc
+cmake --build build
 ```
 
 the output lib will be in build/Release/lib/libyaml-doc.a
 
+## Testing
+
 ### Building the tests
 
+in yaml-doc project folder:
+
 ```shell
-cmake --build build --target yaml-doc-test
+cmake -B build 
+cd build
+cmake --build . --target yaml-doc yaml-doc-tests
+ctest
 ```
 
 ## Usage
