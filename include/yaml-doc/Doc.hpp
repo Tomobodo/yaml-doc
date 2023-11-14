@@ -114,14 +114,19 @@ public:
                    std::string* pOut,
                    const std::string& pDefaultValue);
 
+  bool tryGetValue(const std::string& pPath, std::string* pOut);
+
   template<typename T>
   bool tryGetValue(const std::string& pPath, T* pOut)
   {
     Doc* node;
     if (tryGetNode(pPath, node)) {
-      *pOut = node->getValue<T>();
-      return true;
+      if (pOut != nullptr) {
+        *pOut = node->getValue<T>();
+        return true;
+      }
     }
+
     return false;
   }
 
@@ -130,11 +135,16 @@ public:
   {
     Doc* node;
     if (tryGetNode(pPath, node)) {
-      *pOut = node->getValue<T>();
-      return true;
+      if (pOut != nullptr) {
+        *pOut = node->getValue<T>();
+        return true;
+      }
     }
 
-    *pOut = pDefaultValue;
+    if (pOut != nullptr) {
+      *pOut = pDefaultValue;
+    }
+
     return false;
   }
 

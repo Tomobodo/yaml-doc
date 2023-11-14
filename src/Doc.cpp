@@ -308,11 +308,28 @@ bool Doc::tryGetValue(const std::string& pPath,
 {
   Doc* node;
   if (tryGetNode(pPath, node)) {
-    *pOut = node->getValue();
-    return true;
+    if (pOut != nullptr) {
+      *pOut = node->getValue();
+      return true;
+    }
   }
 
-  *pOut = pDefaultValue;
+  if (pOut != nullptr) {
+    *pOut = pDefaultValue;
+  }
+
+  return false;
+}
+
+bool Doc::tryGetValue(const std::string& pPath, std::string* pOut)
+{
+  Doc* node;
+  if (tryGetNode(pPath, node)) {
+    if (pOut != nullptr) {
+      *pOut = node->getValue();
+      return true;
+    }
+  }
 
   return false;
 }
