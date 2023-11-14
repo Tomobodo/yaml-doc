@@ -1,6 +1,7 @@
 #pragma once
 
 #include "exceptions/DocConversionException.hpp"
+#include "exceptions/DocException.hpp"
 #include <sstream>
 #include <string>
 #include <type_traits>
@@ -145,6 +146,17 @@ public:
       *pOut = pDefaultValue;
     }
 
+    return false;
+  }
+
+  template<typename T>
+  bool tryGetValue(T* pOut)
+  {
+    try {
+      *pOut = this->getValue<T>();
+      return true;
+    } catch (DocException exception) {
+    }
     return false;
   }
 
