@@ -2,6 +2,7 @@ name: Average Person
 age: 32
 weight: 62.0
 height: 1.68
+isNice: false
 inventory:
   - item: banana
     quantity: 2

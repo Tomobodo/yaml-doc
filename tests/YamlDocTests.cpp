@@ -57,6 +57,13 @@ TEST_SUITE("Testing YamlDoc")
       doc.tryGetValue<float>("non.existant.path", &notFoundValue, 51.3f);
       CHECK(notFoundValue == 51.3f);
 
+      bool isNice = doc.getValue<bool>("isNice");
+      CHECK(isNice == false);
+
+      bool isBad = true;
+      doc.tryGetValue("isBad", &isBad, false);
+      CHECK(isBad == false);
+
     } catch (const YAML::DocException e) {
       FAIL(std::string(e.what()));
     }

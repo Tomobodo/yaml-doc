@@ -344,6 +344,18 @@ const char* Doc::getValueOr(const char* pDefault)
   return pDefault;
 }
 
+template<>
+bool Doc::getValue()
+{
+  try {
+    int intValue = std::stoi(value);
+    return intValue == 1;
+  } catch (std::exception& e) {
+  }
+
+  return value == "true";
+}
+
 std::ostream& operator<<(std::ostream& os, const Doc& doc)
 {
   std::string str = doc.toString();

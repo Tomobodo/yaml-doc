@@ -178,4 +178,7 @@ std::ostream& operator<<(std::ostream& os, const Doc& doc);
 template<>
 const char* Doc::getValueOr(const char* pDefault);
 
+template<>
+bool Doc::getValue();
+
 }
